@@ -1,0 +1,1 @@
+# smart-windoor-static-web
