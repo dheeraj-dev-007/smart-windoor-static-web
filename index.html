@@ -408,6 +408,7 @@
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
+// menu js
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
@@ -425,6 +426,8 @@ document.addEventListener("click", () => {
   hamburger.classList.remove("active");
   navMenu.classList.remove("active");
 });
+
+// tooltip js
 const data = {
   window: {
     image: "https://img.freepik.com/free-vector/realistic-vector-icon-illustration-white-plastic-frame-sliding-window_134830-1987.jpg?semt=ais_wordcount_boost&w=740&q=80",
@@ -463,13 +466,7 @@ buttons.forEach(btn => {
   });
 });
 
-// Mobile tap
-hotspots.forEach(h => {
-  h.addEventListener("click", () => {
-    h.classList.toggle("active");
-  });
-});
-
+// section animation
 AOS.init({
   duration: 1000,
   once: true
