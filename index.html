@@ -458,6 +458,8 @@ buttons.forEach(btn => {
 
     image.src = data[type].image;
     tooltips.forEach((t, i) => t.textContent = data[type].tooltips[i]);
+
+    hotspots.forEach(h => h.classList.remove("active"));
   });
 });
 
