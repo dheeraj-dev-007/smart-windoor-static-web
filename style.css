@@ -4,7 +4,7 @@
   --bg-section: #e3d5ca;
   --bg-header: #d6ccc2;
   --accent: #d5bdaf;
-
+  --btn: #c7aa9a;
   --text-dark: #3a2f28;
   --text-muted: #5a4a42;
 }
@@ -50,8 +50,10 @@ body {
 /* ===== HEADER ===== */
 .main-header {
   background: var(--bg-header);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 999;
 }
 
@@ -96,7 +98,7 @@ body {
 
 /* ===== BUTTONS ===== */
 .btn-primary {
-  background: var(--accent);
+  background: var(--btn);
   color: #ffffff;
   padding: 12px 26px;
   border-radius: 30px;
@@ -551,18 +553,46 @@ body {
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  gap: 30px; /* reduced for tighter premium feel */
   text-align: center;
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* Individual stat box */
 .stat-box {
   position: relative;
-  padding: 40px 20px;
+  padding: 45px 25px;
+  border: 2px solid rgba(60, 45, 35, 0.08);
+  border-radius: 12px; /* 🔥 modern touch */
+  background: rgba(255, 255, 255, 0.4); /* subtle card feel */
+  backdrop-filter: blur(6px);
+  transition: all 0.35s ease;
+}
+
+/* 🔥 Hover effect (premium feel) */
+.stat-box:hover {
+  transform: translateY(-8px);
+  border-color: rgba(60, 45, 35, 0.15);
+  box-shadow: 0 12px 30px rgba(60, 45, 35, 0.08);
+}
+
+/* Optional subtle inner highlight */
+.stat-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  pointer-events: none;
 }
 
 /* Faded window outline */
-.stat-box::before {
+/* .stat-box::before {
   content: "";
   position: absolute;
   width: 80px;
@@ -572,23 +602,35 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
-}
+} */
 
 /* Big numbers */
 .stat-number {
   font-family: "Playfair Display", serif;
-  font-size: 45px;
+  font-size: 48px; /* slightly increased */
   font-weight: 600;
-  color: #3C2D23; /* Deep Brown */
+  color: #3C2D23;
   line-height: 1.1;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* 🔥 number hover pop */
+.stat-box:hover .stat-number {
+  transform: scale(1.05);
+}
+
+.stat-icon {
+  font-size: 28px;
+  color: #c5a58a;
   margin-bottom: 15px;
 }
 
 /* Subtitle text */
 .stat-text {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
-  color: #5A4A3F; /* Muted Brown */
+  color: #5A4A3F;
   line-height: 1.5;
 }
 
@@ -596,11 +638,11 @@ body {
 @media (max-width: 1024px) {
   .stats-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 25px;
   }
 
   .stat-number {
-    font-size: 56px;
+    font-size: 52px;
   }
 }
 
@@ -610,11 +652,11 @@ body {
   }
 
   .stat-number {
-    font-size: 46px;
+    font-size: 42px;
   }
 
   .stat-text {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
