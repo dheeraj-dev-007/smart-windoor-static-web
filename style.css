@@ -65,7 +65,7 @@ body {
 }
 
 .logo img {
-  height: 60px;
+  height: 55px;
 }
 
 .nav-menu ul {
@@ -156,11 +156,16 @@ body {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
+.mobile-cta {
+  display: none;
+}
+
 /* ===============================
    MOBILE NAV
 =================================*/
 @media (max-width: 992px) {
 
+  /* Menu container */
   .nav-menu {
     position: absolute;
     top: 100%;
@@ -168,23 +173,55 @@ body {
     width: 100%;
     background: var(--bg-header);
     display: none;
-    padding: 20px 0;
+    padding: 30px 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(0,0,0,0.05);
   }
 
-  .nav-menu ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
+  /* Show menu */
   .nav-menu.active {
     display: block;
   }
 
+  /* Menu list */
+  .nav-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  /* Menu links (IMPORTANT upgrade) */
+  .nav-menu a {
+    font-size: 20px;
+    font-weight: 600;
+    color: #3C2D23;
+  }
+
+  /* Remove desktop CTA */
   .nav-cta {
     display: none;
   }
 
+  /* Fix CTA button (THIS fixes your stretched issue) */
+  .mobile-cta {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .mobile-cta a {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 30px;
+    background: #C5A58A;
+    color: #fff;
+    font-size: 15px;
+    width: auto; /* 🔥 prevents full width stretch */
+  }
+
+  /* Hamburger visible */
   .hamburger {
     display: flex;
   }
@@ -825,7 +862,7 @@ h2 {
 @media (max-width: 768px) {
 
   .hero {
-    padding: 60px 0;
+    padding: 80px 0;
   }
 
   .hero-content h1 {
@@ -845,6 +882,7 @@ h2 {
     width: 100%;
     text-align: center;
   }
+  
 }
 
 /* =========================================
@@ -945,6 +983,10 @@ h2 {
 
   .benchmark-image {
     height: 300px;
+  }
+
+  .logo img {
+    height: 45px;
   }
 }
 
